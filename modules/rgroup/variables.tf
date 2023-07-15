@@ -4,7 +4,7 @@ locals {
   assignment01_tags = {
     Project = "Assigment"
     Name           = "Harsh Tejani"
-    ExpirationDate = "2023-12-30"
+    ExpirationDate = "2024-12-31"
     Environment    = "Lab"
   }
 }
