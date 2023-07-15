@@ -2,9 +2,9 @@ variable "rg-name" {}
 variable "rg-location" {}
 locals {
   assignment01_tags = {
-    Project = "Assigment"
+    Project = "CCGC 5502 Automation Assignement"
     Name           = "Harsh Tejani"
     ExpirationDate = "2024-12-31"
-    Environment    = "Lab"
+    Environment    = "Learning"
   }
 }
