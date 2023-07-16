@@ -24,3 +24,19 @@ output "recovery_vault_name" {
 output "storage_account_name" {
   value = module.common.storage_account_name.name
 }
+
+output "linux-vm-private-ip" {
+  value = module.vmlinux.linux-vm-private-ip
+}
+output "linux-vm-public-ip" {
+  value = module.vmlinux.linux-vm-public-ip
+}
+output "linux_virtual_machine" {
+  value = module.vmlinux.linux_virtual_machine
+}
+output "linux-vm-hostname" {
+  value = module.vmlinux.linux-vm-hostname
+}
+output "linux-vm-fqdn" {
+  value =   module.vmlinux.liunx-vm-FQDN
+}
