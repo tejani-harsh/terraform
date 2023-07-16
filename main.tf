@@ -41,3 +41,13 @@ module "vmlinux" {
   storage_act          = module.common.storage_account_name
 
 }
+
+module "vmwindows" {
+  source          = "./modules/vmwindows-n01581156"
+  windows_vm_name = "win-n01581156"
+  rg_name       = module.rgroup.rg-network-name.name
+  location      = module.rgroup.rg-network-location.location
+  subnet_id     = module.network.azurerm_subnet_name.id
+  depends_on           = [module.common, module.network, module.rgroup]
+  storage_account_name = module.common.storage_account_name
+}
