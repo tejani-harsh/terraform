@@ -38,24 +38,24 @@ output "linux-vm-hostname" {
   value = module.vmlinux.linux-vm-hostname
 }
 output "linux-vm-fqdn" {
-  value =   module.vmlinux.liunx-vm-FQDN
+  value = module.vmlinux.liunx-vm-FQDN
 }
 
 output "windows_vm_name" {
-  value       = module.vmwindows.windows_vm_name
+  value = module.vmwindows.windows_vm_name
 }
 output "windows_vm_id" {
   value = module.vmwindows.windows_vm_id
 }
 
 output "windows_vm_dns_labels" {
-  value       = module.vmwindows.windows_vm_dns_label
+  value = module.vmwindows.windows_vm_dns_label
 }
 
 output "windows_vm_private_ip_address" {
-  value       = module.vmwindows.windows_vm_private_ip_address
+  value = module.vmwindows.windows_vm_private_ip_address
 }
 
 output "windows_vm_public_ip_address" {
-  value       = module.vmwindows.windows_vm_public_ip_address
+  value = module.vmwindows.windows_vm_public_ip_address
 }
