@@ -60,3 +60,28 @@ module "datadisk" {
   rg_name       = module.rgroup.rg-network-name.name
   depends_on    = [module.rgroup, module.vmwindows, module.vmlinux]
 }
+
+module "loadbalancer" {
+  source        = "./modules/loadbalancer-n01581156"
+  rg_name       = module.rgroup.rg-network-name.name
+  location      = module.rgroup.rg-network-location.location
+  vm_public_ip  = module.vmlinux.linux-vm-public-ip
+  linux-nic-id  = module.vmlinux.nic_id[0]
+  nb_count      = "3"
+  linux_vm_name = module.vmlinux.linux-vm-hostname
+  subnet_id     = module.network.azurerm_subnet_name
+  depends_on = [
+    module.rgroup,
+    module.vmlinux,
+  ]
+  assignment01_tags = local.assignment01_tags
+}
+
+locals {
+  assignment01_tags = {
+    Project        = "CCGC 5502 Automation Assignement"
+    Name           = "Harsh Tejani"
+    ExpirationDate = "2024-12-31"
+    Environment    = "Learning"
+  }
+}

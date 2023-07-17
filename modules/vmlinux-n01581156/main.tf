@@ -11,7 +11,7 @@ resource "azurerm_network_interface" "vm-net-interface" {
   location            = var.location
   resource_group_name = var.rg_name
   ip_configuration {
-    name                          = "${var.linux_vm_name}-ipconfig1${format("%1d", count.index + 1)}"
+    name                          = "${var.linux_vm_name}--ipconfigs1${format("%1d", count.index + 1)}"
     subnet_id                     = var.subnet_id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = element(azurerm_public_ip.vm-public-ip[*].id, count.index + 1)
