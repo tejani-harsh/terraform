@@ -62,3 +62,8 @@ output "windows_vm_public_ip_address" {
 output "load_balancer_name" {
   value=module.loadbalancer.load_balancer_name
 }
+
+output "database_name" {
+  value=module.database.db_name
+  sensitive = true
+}
