@@ -25,7 +25,7 @@ resource "azurerm_virtual_machine_data_disk_attachment" "linux_datadisk_attachme
   virtual_machine_id = element(var.linux-vm-ids, count.index)
   lun                = count.index + 1
   caching            = "ReadWrite"
-depends_on         = [azurerm_managed_disk.linux_datadisk]
+  depends_on         = [azurerm_managed_disk.linux_datadisk]
 }
 
 resource "azurerm_virtual_machine_data_disk_attachment" "windows_datadisk_attachment" {

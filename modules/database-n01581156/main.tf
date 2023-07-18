@@ -18,9 +18,9 @@ resource "azurerm_postgresql_server" "psql_server" {
 }
 
 resource "azurerm_postgresql_database" "database" {
-  name                      = var.db_name
-  resource_group_name          = var.rg_name
-  server_name                  = azurerm_postgresql_server.psql_server.name
-  charset                      = "UTF8"
-  collation                    = "English_United States.1252"
+  name                = var.db_name
+  resource_group_name = var.rg_name
+  server_name         = azurerm_postgresql_server.psql_server.name
+  charset             = "UTF8"
+  collation           = "English_United States.1252"
 }

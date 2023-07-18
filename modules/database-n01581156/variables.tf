@@ -6,10 +6,10 @@ variable "location" {
 }
 
 variable "db_username" {
-  
+
 }
 
-variable "db_pass" { 
+variable "db_pass" {
 
 }
 
@@ -25,6 +25,6 @@ variable "db_version" {
 }
 
 variable "assignment01_tags" {
-  type    = map(string)
+  type = map(string)
 }
 

@@ -5,7 +5,7 @@ variable "recovery_services_vault" {
   type = map(string)
   default = {
     recovery_vault_name = "backup-vault"
-    recovery_sku   = "Standard"
+    recovery_sku        = "Standard"
   }
 }
 
@@ -14,11 +14,11 @@ variable "storage_account_tier" {
 }
 
 variable "storage_account_name" {
-  default = "ccgc5502storageaccount" 
+  default = "ccgc5502storageaccount"
 }
 
 variable "analytics_workspace_name" {
-  default = "analyticsworkspace"  
+  default = "analyticsworkspace"
 }
 
 locals {

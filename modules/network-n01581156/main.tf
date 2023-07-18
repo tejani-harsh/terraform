@@ -41,7 +41,7 @@ resource "azurerm_network_security_group" "nsg1" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
-   security_rule {
+  security_rule {
     name                       = "rule3"
     priority                   = 300
     direction                  = "Inbound"
@@ -51,7 +51,7 @@ resource "azurerm_network_security_group" "nsg1" {
     destination_port_range     = "5985"
     source_address_prefix      = "*"
     destination_address_prefix = "*"
-  } 
+  }
   security_rule {
     name                       = "rule4"
     priority                   = 400

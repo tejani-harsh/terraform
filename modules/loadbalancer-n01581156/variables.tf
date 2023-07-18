@@ -8,6 +8,6 @@ variable "linux-nic-id" {
 variable "nb_count" {}
 variable "subnet_id" {}
 variable "assignment01_tags" {
-  type    = map(string)
+  type = map(string)
 }
 variable "linux_vm_name" {}

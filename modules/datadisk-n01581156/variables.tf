@@ -14,7 +14,7 @@ variable "disk_size_gb" {
 
 variable "linux-vm-ids" {
   description = "List of Linux VM resource IDs to attach the data disks"
-  type = list(string)
+  type        = list(string)
 }
 
 variable "windows_vm_id" {

@@ -78,17 +78,17 @@ module "loadbalancer" {
 }
 
 module "database" {
-  source                          = "./modules/database-n01581156"
-  rg_name       = module.rgroup.rg-network-name.name
-  location      = module.rgroup.rg-network-location.location
+  source      = "./modules/database-n01581156"
+  rg_name     = module.rgroup.rg-network-name.name
+  location    = module.rgroup.rg-network-location.location
   db_username = "psqluser"
-  db_pass = "admIn@123"
-  db_name = "n01581156-db"
+  db_pass     = "admIn@123"
+  db_name     = "n01581156-db"
   server_name = "db-n01581156"
   depends_on = [
     module.rgroup
   ]
-  assignment01_tags                     = local.assignment01_tags
+  assignment01_tags = local.assignment01_tags
 }
 
 locals {
