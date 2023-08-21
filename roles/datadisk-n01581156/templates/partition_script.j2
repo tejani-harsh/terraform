@@ -1,0 +1,9 @@
+#!/bin/bash
+# Run this script to partition and format the data disks
+
+parted /dev/sda mklabel gpt
+parted /dev/sda mkpart primary 1MiB {{ part1_size }}
+parted /dev/sda mkpart primary {{ part1_size }} {{ part1_size|float + part2_size|float }}
+
+mkfs.{{ part1_fs_type }} /dev/sda
+mkfs.{{ part2_fs_type }} /dev/sdb

@@ -33,6 +33,9 @@ resource "azurerm_lb_rule" "lb_rule" {
   frontend_port                  = 80
   backend_port                   = 80
   frontend_ip_configuration_name = "PublicIPAddress"
+  backend_address_pool_ids = [
+    azurerm_lb_backend_address_pool.backend_pool.id
+  ]
 }
 resource "azurerm_lb_probe" "lb_probe" {
   loadbalancer_id = azurerm_lb.Load_balancer.id

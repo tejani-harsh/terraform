@@ -1,0 +1,33 @@
+- name: Create cloudadmins group
+  group:
+    name: cloudadmins
+    state: present
+
+- name: Create user accounts
+  user:
+    name: "{{ item.username }}"
+    groups: "{{ item.groups }},wheel"
+    state: "{{ item.state }}"
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: ~/.ssh/id_rsa
+    ssh_key_comment: "{{ item.username }}"
+    password: ""
+    shell: /bin/bash
+  loop: "{{ users }}"
+
+- name: Add SSH keys for users
+  authorized_key:
+    user: "{{ item.username }}"
+    key: "{{ lookup('file','~/.ssh/id_rsa.pub') }}"
+    state: present
+  loop: "{{ users }}"
+
+- name: Modify sudoers file
+  lineinfile:
+    path: "{{ item.path }}"
+    line: " %cloudadmins ALL=(ALL) NOPASSWD: ALL"
+    state: "{{ item.state }}"
+    create: yes
+    validate: "{{ item.validate }}"
+  loop: "{{ sudoersUpdate }}"

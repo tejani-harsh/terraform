@@ -1,0 +1,48 @@
+---
+- name: Create partitions
+  parted:
+    device: /dev/sdc
+    number: 1
+    state: present
+    part_start: 1MiB
+    part_end: "{{ part1_size }}"
+
+- name: Format partition 1
+  command: "mkfs.{{ part1_fs_type }} -f /dev/sdc1"
+
+- name: Create mount point 1
+  file:
+    path: "{{ part1_mount_point }}"
+    state: directory
+
+- name: Mount partition 1
+  mount:
+    src: /dev/sdc1
+    path: "{{ part1_mount_point }}"
+    fstype: "{{ part1_fs_type }}"
+    opts: defaults
+    state: mounted
+
+- name: Create partitions
+  parted:
+    device: /dev/sdc
+    number: 2
+    state: present
+    part_start: "{{ part1_size }}"
+    part_end: 9GiB
+
+- name: Format partition 2
+  command: "mkfs.{{ part2_fs_type }} /dev/sdc2"
+
+- name: Create mount point 2
+  file:
+    path: "{{ part2_mount_point }}"
+    state: directory
+
+- name: Mount partition 2
+  mount:
+    src: /dev/sdc2
+    path: "{{ part2_mount_point }}"
+    fstype: "{{ part2_fs_type }}"
+    opts: defaults
+    state: mounted

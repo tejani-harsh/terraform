@@ -1,0 +1,10 @@
+---
+- name: Partition and Mount Data Disks
+  hosts: linux
+  become: true
+
+  roles:
+    - datadisk-n01581156
+    - profile-n01581156
+    - users-n01581156
+    - webserver-n01581156

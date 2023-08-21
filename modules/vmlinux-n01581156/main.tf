@@ -13,7 +13,7 @@ resource "azurerm_network_interface" "vm-net-interface" {
   ip_configuration {
     name                          = "${var.linux_vm_name}--ipconfigs1${format("%1d", count.index + 1)}"
     subnet_id                     = var.subnet_id
-    private_ip_address_allocation = "Dynamic"
+    private_ip_address_allocation = "Static"
     public_ip_address_id          = element(azurerm_public_ip.vm-public-ip[*].id, count.index + 1)
   }
   tags = local.assignment01_tags
@@ -24,7 +24,7 @@ resource "azurerm_public_ip" "vm-public-ip" {
   name                = "${var.linux_vm_name}-pip${format("%1d", count.index + 1)}"
   resource_group_name = var.rg_name
   location            = var.location
-  allocation_method   = "Dynamic"
+  allocation_method   = "Static"
   tags                = local.assignment01_tags
   domain_name_label   = "${lower(replace(var.linux_vm_name, "/[^a-z0-9-]/", ""))}${format("%1d", count.index + 1)}"
 

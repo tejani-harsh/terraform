@@ -3,7 +3,7 @@
 variable "disk_count" {
   description = "Number of data disks to create"
   type        = number
-  default     = 4
+  default     = 5
 }
 
 variable "disk_size_gb" {
